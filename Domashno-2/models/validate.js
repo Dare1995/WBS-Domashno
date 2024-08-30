@@ -7,13 +7,14 @@ const BookCreate = {
     genre: "required|string",
 };
 
+// ne treba da ima required for UPDATE funkcija!
 const BookUpdate = {
     author: "required|string",
     title: "string",
-    year: "required|dateFormat:DD-MM-YYYY",
+    year: "required|dateFormat:DD-MM-YYYY",   
     genre: "string",
 };
-
+// ne treba da ima required for UPDATE funkcija!
 
 const validateBook = async (data, schema) => {
     const validator = new Validator(data, schema);

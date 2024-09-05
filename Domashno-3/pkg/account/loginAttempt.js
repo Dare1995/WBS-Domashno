@@ -23,4 +23,11 @@ const loginAttemptSchema = new mongoose.Schema({
 
 const LoginAttempt = mongoose.model("LoginAttempt", loginAttemptSchema);
 
+
+// // TIMESTAMP funkcija
+// loginAttemptSchema.pre("save", (next) => {
+//   console.log("Saved Data");
+//   next();
+// })
+
 module.exports = LoginAttempt;

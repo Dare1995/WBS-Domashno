@@ -28,7 +28,7 @@ const login = async (req, res) => {
     //   return res.status(400).send("Wrong password!");
     // }
 
-    const isPasswordValid = await bcrypt.compare(password, account.password);
+    const isPasswordValid = await bcrypt.compareSync(password, account.password);
     if (!isPasswordValid) {
       await userLoginAttempt(email, "FAILURE", ipAddress);
       return res.status(400).send("Wrong password!");
@@ -44,6 +44,12 @@ const login = async (req, res) => {
     };
 
     const token = jwt.sign(payload, getSection("development").jwt_secret);
+    // if (token) {
+    //   await userLoginAttempt(email, "SUCCESS", ipAddress);
+    // } else {
+    //   await userLoginAttempt(email, "FAILURE", ipAddress);
+    //   return res.status(400).send("Wrong password!");
+    // }
     return res.status(200).send({ token });
   } catch (err) {
     console.error(err);

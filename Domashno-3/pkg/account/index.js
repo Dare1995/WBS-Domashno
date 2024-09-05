@@ -4,6 +4,8 @@ const accountSchema = mongoose.Schema({
   username: String,
   email: String,
   password: String,
+  // succescount: Number,
+  // failcount: Number
 });
 
 const AccountsModel = mongoose.model("Account", accountSchema, "accounts");

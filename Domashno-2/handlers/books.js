@@ -1,5 +1,5 @@
-const { getBook, createBook, updateBook, removeBook } = require("../models/books");
-const { BookCreate, BookUpdate, validateBook } = require("../models/validate");
+const { getBook, createBook, updateBook, removeBook } = require("../models/books/books");
+const { BookCreate, BookUpdate, validateBook } = require("../models/books/validate");
 
 
 const getBooks = async (req, res) => {

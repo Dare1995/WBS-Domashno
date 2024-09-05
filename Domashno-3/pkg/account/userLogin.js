@@ -7,8 +7,9 @@ const userLoginAttempt = async (email, status, ipAddress) => {
       status,
       ipAddress,
     });
-    await attempt.save();
-  } catch (error) {
+    
+    return await attempt.save();
+    } catch (error) {
     console.error("Failed to log login attempt:", error);
   }
 };

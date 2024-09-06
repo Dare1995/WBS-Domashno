@@ -29,7 +29,7 @@ app.use(
     secret: getSection("development").jwt_secret,
     algorithms: ["HS256"],
   }).unless({
-    path: ["/auth/login", "/auth/register", "/auth/reset", "/cars/:owner", "/cars"],
+    path: ["/auth/login", "/auth/register", "/auth/reset"],
   })
 );
 
@@ -39,7 +39,7 @@ app.post("/auth/register", register);
 app.post("/auth/refresh", refreshToken);
 app.post("/auth/reset", resetPassword);
 
-app.get("/cars/:owner", getAllCars);
+app.get("/cars", getAllCars);
 app.post("/cars", createCar);
 app.put("/cars/:id", updateCar);
 app.delete("/cars/:id", deleteCar);

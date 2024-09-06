@@ -12,13 +12,11 @@ const getAllCars = async (req, res) => {
 
 const createCar = async (req, res) => {
     try {
-        // const data = {
-        //     ...req.body,
-        //     owner: req.auth.id,
-        // };
-        // const newCar = await create(data);
-        const carData = req.body;
-        const newCar = await create(carData);
+        const data = {
+            ...req.body,
+            owner: req.auth.id,
+        };
+        const newCar = await create(data);
         return res.status(200).send(newCar);
     } catch (err) {
         console.error(err);
